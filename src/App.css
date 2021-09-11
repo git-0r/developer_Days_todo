@@ -159,17 +159,12 @@ pre{
     position: fixed;
     bottom: 0px;
     left: 0px;
-    width: 100%;
     font-size: 12px;
     writing-mode:vertical-rl;
     text-orientation: sideways-right;
     transform: rotate(180deg);
     margin-bottom: 1rem;
 }
-
-/* footer p {
-    margin-right: 2rem;
-} */
 
 @media (min-width:501px) and (max-width:800px) {
     .note-container{

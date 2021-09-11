@@ -16,7 +16,7 @@ function App() {
   const createNote = (e) => {
     e.preventDefault()
 
-    const content = e.target[0].value
+    const content = (e.target[0].value).trim()
 
     if (content === "") {
       window.alert("content is missing !")
@@ -112,9 +112,7 @@ function App() {
       <ul>
         <ShowNotes allNotes={allNotes} />
       </ul>
-      {/* <footer> */}
       <p className="footer">Made with ❤️ by Rohit <a href="https://github.com/git-0r" target="_blank" rel="noreferrer"><ion-icon name="logo-github"></ion-icon></a></p>
-      {/* </footer> */}
     </div>
   );
 }
