@@ -9,7 +9,7 @@ function App() {
   const [editNote, setEditNote] = useState({})
 
   useEffect(() => {
-    axios.get('http://localhost:3001/notes')
+    axios.get('/notes')
       .then(res => setAllNotes(res.data))
   }, [])
 
@@ -21,14 +21,14 @@ function App() {
     if (content === "") {
       window.alert("content is missing !")
     } else {
-      axios.post('http://localhost:3001/notes', { content: content })
+      axios.post('/notes', { content: content })
         .then(res => setAllNotes(allNotes.concat(res.data)))
       e.target[0].value = ""
     }
   }
 
   const remove = (note) => {
-    axios.delete(`http://localhost:3001/notes/${note.id}`)
+    axios.delete(`/notes/${note.id}`)
 
     const notes = allNotes.filter(n => n.id !== note.id)
     setAllNotes(notes)
@@ -62,7 +62,7 @@ function App() {
 
     const content = e.target[0].value
     const id = editNote.id
-    axios.put(`http://localhost:3001/notes/${id}`, { "content": content })
+    axios.put(`/notes/${id}`, { "content": content })
 
     const updatedNotes = allNotes.map(note => {
       if (note.id === id) {
@@ -112,9 +112,9 @@ function App() {
       <ul>
         <ShowNotes allNotes={allNotes} />
       </ul>
-      <footer>
-        <p>Made with ❤️ by Rohit <a href="https://github.com/git-0r" target="_blank" rel="noreferrer"><ion-icon name="logo-github"></ion-icon></a></p>
-      </footer>
+      {/* <footer> */}
+      <p className="footer">Made with ❤️ by Rohit <a href="https://github.com/git-0r" target="_blank" rel="noreferrer"><ion-icon name="logo-github"></ion-icon></a></p>
+      {/* </footer> */}
     </div>
   );
 }
